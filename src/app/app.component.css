@@ -1,0 +1,76 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f2937;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .left-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Icon-only buttons */
+  .icon-button {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .icon-button:hover {
+    color: #a5b4fc;
+  }
+  
+  /* Main layout */
+  .app-main {
+    display: flex;
+    flex: 1;
+    height: 100%;
+  }
+  
+  /* Sidebar */
+  app-history {
+    width: 260px;
+    background-color: #f3f4f6;
+    border-right: 1px solid #e5e7eb;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  /* Chat window container grows/shrinks */
+  .chat-window-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+  
+  .left-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* space between logo and button */
+  }
+  
+  .logo-image {
+    height: 40px; /* adjust as needed */
+  }
+  

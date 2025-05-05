@@ -1,0 +1,7 @@
+<h3 class="history-title">📜 Previous Chats</h3>
+
+<ul class="history-list">
+  <li *ngFor="let session of sessions" (click)="load(session.id)">
+    🗂️ {{ session.name }}
+  </li>
+</ul>

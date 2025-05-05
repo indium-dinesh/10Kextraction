@@ -1,0 +1,60 @@
+<div class="chat-window">
+    <div class="chat-history" *ngIf="messages?.length">
+        <div *ngFor="let message of messages" class="message"
+            [ngClass]="{ 'user-message': message.isUser, 'bot-message': !message.isUser }"
+            [class.error]="message.error">
+            <div class="message-content">{{message.text}}</div>
+            <ng-container *ngIf="message?.attachments?.length">
+                {{ message?.attachments | json }}:
+            </ng-container>
+
+            <ng-container *ngIf="message?.pdfFiles?.length">
+                <div class="attachments">
+                    <h3>Reference Document(s)</h3>
+                    <div *ngFor="let attachment of message.pdfFiles" class="attachment">
+                        <ng-container *ngIf="attachment?.type === undefined">
+                            <button (click)="viewPDF(attachment)" class="view-pdf-button">
+                                📄 {{attachment.metadata.source_file_name}}
+                            </button> - Page No {{attachment.metadata.page_num}}
+                        </ng-container>
+                        {{attachment?.type}}
+                        <ng-container *ngIf="attachment?.metadata?.type === 'image'">
+                            <button (click)="viewImage(attachment)" class="view-pdf-button">
+                                🖼️ {{attachment.metadata.image_source_in_file}} </button>
+                        </ng-container>
+                    </div>
+                </div>
+            </ng-container>
+
+
+            <div class="message-time">{{ message.time | date: 'shortTime' }}</div>
+        </div>
+    </div>
+
+
+    <div class="chat-placeholder" *ngIf="!messages?.length">
+        <p>Start the conversation</p>
+    </div>
+    <div class="chat-input">
+        <div class="input-box">
+            <div *ngIf="attachedFileName" class="file-preview">
+                <span class="file-name">{{ attachedFileName }}</span>
+                <button class="clear-file" (click)="clearAttachment()">✖</button>
+            </div>
+
+            <textarea [(ngModel)]="inputMessage" rows="1" placeholder="Type your message..."></textarea>
+
+            <div class="input-actions">
+                <label for="file-upload" class="attach-icon" title="Attach a file">📎</label>
+                <input type="file" id="file-upload" (change)="uploadFile($event)" hidden />
+
+                <button class="send-button" (click)="sendMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+    <app-loader *ngIf="loading"></app-loader>
+    <div class="image-viewer-overlay" *ngIf="showViewer" (click)="closeViewer()">
+        <img [src]="imageUrl" alt="Full View" class="full-image" />
+    </div>
+
+</div>

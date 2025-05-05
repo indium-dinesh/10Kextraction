@@ -1,0 +1,10 @@
+<div class="pdf-modal" *ngIf="show">
+    <div class="pdf-backdrop"></div>
+    <div class="pdf-content">
+        <button class="close-btn" (click)="closeModal()">✖</button>
+
+        <ngx-extended-pdf-viewer [src]="url" [useBrowserLocale]="true" [page]="page" [textLayer]="true"
+            [handTool]="true" [showSidebarButton]="true" [findText]="searchText"
+            height="90vh"></ngx-extended-pdf-viewer>
+    </div>
+</div>
