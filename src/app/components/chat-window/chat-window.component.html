@@ -12,12 +12,11 @@
                 <div class="attachments">
                     <h3>Reference Document(s)</h3>
                     <div *ngFor="let attachment of message.pdfFiles" class="attachment">
-                        <ng-container *ngIf="attachment?.type === undefined">
+                        <ng-container *ngIf="attachment?.metadata?.file_path !== undefined">
                             <button (click)="viewPDF(attachment)" class="view-pdf-button">
                                 📄 {{attachment.metadata.source_file_name}}
                             </button> - Page No {{attachment.metadata.page_num}}
                         </ng-container>
-                        {{attachment?.type}}
                         <ng-container *ngIf="attachment?.metadata?.type === 'image'">
                             <button (click)="viewImage(attachment)" class="view-pdf-button">
                                 🖼️ {{attachment.metadata.image_source_in_file}} </button>
