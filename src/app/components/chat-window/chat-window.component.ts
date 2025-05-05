@@ -159,7 +159,7 @@ export class ChatWindowComponent implements OnInit {
       url: Url,
     };
     this.imageUrl = Url;
-    this.imageUrl = "http://localhost:4200/assets/fake.png"
+    // this.imageUrl = "http://localhost:4200/assets/fake.png"
     this.showViewer = true;
 
   }

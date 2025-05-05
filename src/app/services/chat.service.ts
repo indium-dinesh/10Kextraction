@@ -7,8 +7,8 @@ import { catchError, delay } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ChatService {
-  public apiUrl =  'http://65.1.110.219:8000'+'/'; // Replace with your actual API URL
-  // public apiUrl =  'http://' +window.location.hostname+ ':8000'+'/'; // Replace with your actual API URL
+  // public apiUrl =  'http://65.1.110.219:8000'+'/'; // Replace with your actual API URL
+  public apiUrl =  'http://' +window.location.hostname+ ':8000'+'/'; // Replace with your actual API URL
 
   constructor(private http: HttpClient) {
     console.log('ChatService initialized'); 
@@ -17,18 +17,9 @@ export class ChatService {
   } 
 
   sendMessage(message: string): Observable<any> {
-    // Mock API response for testing
-    // const mockResponse = {
-    //   response: `Your message: ${message}`,
-    //   pdfUrl: "https://pdfobject.com/pdf/sample.pdf" // or a URL to a PDF if applicable
-    // };
-
-    // return of(mockResponse).pipe(
-    //   delay(1000), // Simulate API delay
-    //   catchError(this.handleError('sendMessage', []))
-    // );
-    // return this.http.post(this.apiUrl + 'ask', {query: message});
-    return this.http.get('assets/mocks/ask2.json');
+    
+    return this.http.post(this.apiUrl + 'ask', {query: message});
+    // return this.http.get('assets/mocks/ask2.json');
   }
 
   getChatHistory(): Observable<any[]> {
