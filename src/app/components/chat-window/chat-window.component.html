@@ -18,6 +18,9 @@
                             </button> - Page No {{attachment.metadata.page_num}}
                         </ng-container>
                         <ng-container *ngIf="attachment?.metadata?.type === 'image'">
+                            <button (click)="viewPDF(attachment)" class="view-pdf-button">
+                                📄 {{attachment.metadata.image_source_in_file}}
+                            </button> - Page No {{attachment.metadata.page_num}} &nbsp;
                             <button (click)="viewImage(attachment)" class="view-pdf-button">
                                 🖼️ {{attachment.metadata.image_source_in_file}} </button>
                         </ng-container>
@@ -55,5 +58,8 @@
     <div class="image-viewer-overlay" *ngIf="showViewer" (click)="closeViewer()">
         <img [src]="imageUrl" alt="Full View" class="full-image" />
     </div>
+    <app-pdf-viewer *ngIf="selectedPDF?.show" [url]="selectedPDF.url" [page]="selectedPDF.page"
+        [searchText]="selectedPDF.searchText" [show]="selectedPDF.show" (close)="selectedPDF.show = false">
+    </app-pdf-viewer>
 
 </div>

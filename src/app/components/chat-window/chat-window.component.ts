@@ -36,13 +36,11 @@ export class ChatWindowComponent implements OnInit {
 
   viewPDF(message: any) {
     console.log('viewPDF', message);
-    const Url = this.chatService.apiUrl + 'view_pdf?file_path=' + (message.metadata.file_path);
+    const Url = this.chatService.apiUrl + 'view_pdf?file_path=' + (message.metadata.file_path || message.metadata.source_file);
     const page_num = message.metadata.page_num;
-    // this.chatService.viewPDF(Url).subscribe((response: any) => {
-    // })
     this.selectedPDF = {
       url: Url,
-      // url: '/assets/mocks/FORD.pdf',
+      // url: 'http://localhost:4200/assets/mocks/FORD.pdf',
       page: message.pageNo || page_num,   // go to page 3
       searchText: message.searchText || '', // search for "E"
       show: true
