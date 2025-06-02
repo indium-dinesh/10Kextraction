@@ -1,0 +1,44 @@
+.main-side-bar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-container {
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-container img {
+    width: 100%;
+}
+
+.side-bar-controls {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+
+.nav-item.color-white {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.item.active {
+    color: #FB6D1E;
+}

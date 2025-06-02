@@ -1,0 +1,11 @@
+<app-history *ngIf="showHistory" [sessions]="sessions" (loadSession)="loadSession($event)">
+</app-history>
+
+
+<div class="chat-window-container">
+    <h3 class="ps-1">{{title}}</h3>
+    <app-chat-window [messages]="currentMessages" (newMessage)="onMessage($event)">
+    </app-chat-window>
+    <span class="ps-1 copyrite">© 2025 All Rights Reserved | Indium Software (India) Private Limited</span>
+
+</div>

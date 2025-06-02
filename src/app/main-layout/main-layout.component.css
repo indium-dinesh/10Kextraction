@@ -1,0 +1,21 @@
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    height: 100vh;
+}
+.sidebar {
+    width: 10vb;
+    background-color: #161616;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.9);
+}
+.content{
+    width: 100%;
+}

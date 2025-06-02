@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ChatService } from '../../services/chat.service';
+import { ChatService } from '../../../services/chat.service';
 
 @Component({
   selector: 'app-chat-window',
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.css']
 })
-export class ChatWindowComponent implements OnInit {
+export class  ChatWindowComponent implements OnInit {
   // messages: { text: string; isUser: boolean, content: string, time: Date }[] = [];
   inputMessage: string = '';
   loading: boolean = false;
@@ -52,7 +52,7 @@ export class ChatWindowComponent implements OnInit {
     const file: File = event.target.files[0];
     if (file) {
       this.attachedFileName = file.name;
-      console.log('Selected file:',file); 
+      console.log('Selected file:', file);
       this.selectedFile = file;
       const formData = new FormData();
       formData.append('file', this.selectedFile);
@@ -85,7 +85,7 @@ export class ChatWindowComponent implements OnInit {
           this.loading = false;
           let botMsg: any = {
             isUser: false,
-            error: true,  
+            error: true,
             text: 'Error uploading file, Please try again later.',
             time: new Date()
           };
@@ -152,7 +152,7 @@ export class ChatWindowComponent implements OnInit {
 
   }
   viewImage(message: any) {
-    const Url = this.chatService.apiUrl + 'view_pdf?file_path=' + (message.metadata.image );
+    const Url = this.chatService.apiUrl + 'view_pdf?file_path=' + (message.metadata.image);
     this.selectImage = {
       url: Url,
     };
@@ -161,7 +161,7 @@ export class ChatWindowComponent implements OnInit {
     this.showViewer = true;
 
   }
-  closeViewer(){
+  closeViewer() {
     this.showViewer = false;
     this.imageUrl = "";
   }

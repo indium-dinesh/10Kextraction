@@ -1,0 +1,16 @@
+.not-found-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: linear-gradient(300deg, #a7a7a7, #0b0b0b);
+}
+
+h1.not-found-title {
+    font-size: 10rem;
+}
+p.not-found-message {
+    text-align: center;
+}

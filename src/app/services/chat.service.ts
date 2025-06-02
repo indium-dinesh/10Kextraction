@@ -7,7 +7,7 @@ import { catchError, delay } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ChatService {
-  // public apiUrl =  'http://65.1.110.219:8000'+'/'; // Replace with your actual API URL
+  // public apiUrl =  'http://52.66.246.248:8000/'; // Replace with your actual API URL
   public apiUrl =  'http://' +window.location.hostname+ ':8000'+'/'; // Replace with your actual API URL
 
   constructor(private http: HttpClient) {
